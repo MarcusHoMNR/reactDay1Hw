@@ -1,6 +1,6 @@
 import { useState } from "react";
-import SubmitTodoItem from "./SubmitTodoItem";
-import TodoItemsList from "./TodoItemsList";
+import TodoGenerator from "./TodoGenerator";
+import TodoGroup from "./TodoGroup";
 
 function TodoList() {
   const [todoItems, setTodoItems] = useState([]);
@@ -12,8 +12,8 @@ function TodoList() {
   return (
     <div className="center">
       <b style={{ marginTop: "10px" }}>Todo List:</b>
-      <TodoItemsList todoItems={todoItems}></TodoItemsList>
-      <SubmitTodoItem updateTodoItems={updateTodoItems}></SubmitTodoItem>
+      <TodoGroup todoItems={todoItems}></TodoGroup>
+      <TodoGenerator updateTodoItems={updateTodoItems}></TodoGenerator>
     </div>
   );
 }

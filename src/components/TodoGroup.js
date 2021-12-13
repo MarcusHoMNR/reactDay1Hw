@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 
-function TodoItemsList(props) {
+import TodoItem from "./TodoItem";
+
+function TodoGroup(props) {
   const [todoItem, setTodoItem] = useState([]);
   useEffect(() => {
     setTodoItem(props.todoItems);
@@ -8,14 +10,9 @@ function TodoItemsList(props) {
   return (
     <div>
       {todoItem.map((item) => {
-        return (
-          <div className="todoItemRow">
-            <span>{item}</span>
-            <br />
-          </div>
-        );
+        return <TodoItem item={item}></TodoItem>;
       })}
     </div>
   );
 }
-export default TodoItemsList;
+export default TodoGroup;

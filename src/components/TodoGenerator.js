@@ -1,4 +1,4 @@
-function SubmitTodoItem(props) {
+function TodoGenerator(props) {
   function onSubmitItem() {
     if (document.getElementById("submitInput").value !== "") {
       props.updateTodoItems(document.getElementById("submitInput").value);
@@ -29,4 +29,4 @@ function SubmitTodoItem(props) {
   );
 }
 
-export default SubmitTodoItem;
+export default TodoGenerator;
