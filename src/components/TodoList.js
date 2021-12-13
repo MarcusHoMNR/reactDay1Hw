@@ -10,7 +10,8 @@ function TodoList() {
   }
 
   return (
-    <div>
+    <div className="center">
+      <b style={{ marginTop: "10px" }}>Todo List:</b>
       <TodoItemsList todoItems={todoItems}></TodoItemsList>
       <SubmitTodoItem updateTodoItems={updateTodoItems}></SubmitTodoItem>
     </div>

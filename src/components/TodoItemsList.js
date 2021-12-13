@@ -9,10 +9,10 @@ function TodoItemsList(props) {
     <div>
       {todoItem.map((item) => {
         return (
-          <>
+          <div className="todoItemRow">
             <span>{item}</span>
             <br />
-          </>
+          </div>
         );
       })}
     </div>

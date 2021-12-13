@@ -1,17 +1,30 @@
-import { useState } from "react";
-
 function SubmitTodoItem(props) {
-  const [submittedItem, setSubmittedItem] = useState("");
-
   function onSubmitItem() {
-    setSubmittedItem(document.getElementById("submitInput").value);
-    props.updateTodoItems(document.getElementById("submitInput").value);
+    if (document.getElementById("submitInput").value !== "") {
+      props.updateTodoItems(document.getElementById("submitInput").value);
+    }
   }
 
   return (
-    <div>
-      <input type="text" id="submitInput" name="submitInput" />
-      <input type="submit" value="Submit" onClick={onSubmitItem}></input>
+    <div style={{ display: "flex", marginTop: "10px" }}>
+      <input
+        type="text"
+        id="submitInput"
+        name="submitInput"
+        style={{ flexGrow: "1" }}
+      />
+      <input
+        type="submit"
+        value="add"
+        onClick={onSubmitItem}
+        style={{
+          width: "15%",
+          backgroundColor: "dodgerblue",
+          color: "white",
+          border: "none",
+          marginLeft: "10px",
+        }}
+      ></input>
     </div>
   );
 }

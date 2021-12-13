@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.todoItemRow {
+  width: 100%;
+  border: #282c34 solid;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.center {
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px;
+}
