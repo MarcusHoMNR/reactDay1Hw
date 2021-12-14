@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import TodoItem from "./TodoItem";
 
 function TodoGroup(props) {
-  const [todoItem, setTodoItem] = useState([]);
+  const [todoItems, setTodoItems] = useState([]);
   useEffect(() => {
-    setTodoItem(props.todoItems);
+    setTodoItems(props.todoItems);
   }, [props.todoItems]);
   return (
     <div>
-      {todoItem.map((item) => {
+      {todoItems.map((item) => {
         return <TodoItem item={item}></TodoItem>;
       })}
     </div>

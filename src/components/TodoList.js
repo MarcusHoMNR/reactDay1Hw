@@ -11,7 +11,7 @@ function TodoList() {
 
   return (
     <div className="center">
-      <b style={{ marginTop: "10px", fontSize: "40px" }}>Todo List</b>
+      <h1>Todo List</h1>
       <TodoGroup todoItems={todoItems}></TodoGroup>
       <TodoGenerator updateTodoItems={updateTodoItems}></TodoGenerator>
     </div>

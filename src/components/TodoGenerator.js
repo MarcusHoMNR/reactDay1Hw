@@ -1,7 +1,11 @@
+import { useState } from "react";
+
 function TodoGenerator(props) {
+  const [submittedItem, setSubmittedItem] = useState("");
   function onSubmitItem() {
-    if (document.getElementById("submitInput").value !== "") {
-      props.updateTodoItems(document.getElementById("submitInput").value);
+    if (submittedItem !== "") {
+      props.updateTodoItems(submittedItem);
+      setSubmittedItem("");
     }
   }
 
@@ -13,6 +17,8 @@ function TodoGenerator(props) {
         type="text"
         id="submitInput"
         name="submitInput"
+        value={submittedItem}
+        onChange={(event) => setSubmittedItem(event.target.value)}
         style={{ width: "50%", borderRadius: "5px" }}
       />
       <input
