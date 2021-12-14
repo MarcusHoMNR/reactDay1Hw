@@ -3,7 +3,7 @@ import { useState } from "react";
 function TodoGenerator(props) {
   const [submittedItem, setSubmittedItem] = useState("");
   function onSubmitItem() {
-    if (submittedItem !== "") {
+    if (submittedItem.trim() !== "") {
       props.updateTodoItems(submittedItem);
       setSubmittedItem("");
     }
