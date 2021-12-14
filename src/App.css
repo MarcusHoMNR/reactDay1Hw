@@ -44,8 +44,7 @@
   padding: 10px;
   word-wrap: break-word;
   white-space: pre;
-  animation-name: fadeIn;
-  animation-duration: 2s;
+  animation: fadeIn 2s;
 }
 
 .center {

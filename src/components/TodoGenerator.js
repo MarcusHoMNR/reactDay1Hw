@@ -4,7 +4,7 @@ function TodoGenerator(props) {
   const [submittedItem, setSubmittedItem] = useState("");
   function onSubmitItem() {
     if (submittedItem.trim() !== "") {
-      props.updateTodoItems(submittedItem);
+      props.updateTodoItems(submittedItem.trim());
       setSubmittedItem("");
     }
   }
