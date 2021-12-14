@@ -36,28 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.todo-item-row {
-  width: 100%;
-  border: #282c34 solid;
-  margin-top: 10px;
-  padding: 10px;
-  word-wrap: break-word;
-  white-space: pre;
-  animation: fadeIn 2s;
-}
-
-.center {
-  width: 70%;
-  margin: 0 auto;
-  padding: 10px;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 100;
-  }
-}

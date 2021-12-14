@@ -1,40 +1,37 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { UPDATE_TODO_ITEMS } from "../constant/constant";
+import { v4 as uuidv4 } from "uuid";
 
-function TodoGenerator(props) {
+function TodoGenerator() {
   const [submittedItem, setSubmittedItem] = useState("");
+  const dispatch = useDispatch();
+
   function onSubmitItem() {
     if (submittedItem.trim() !== "") {
-      props.updateTodoItems(submittedItem.trim());
+      dispatch({
+        type: UPDATE_TODO_ITEMS,
+        payload: { id: uuidv4(), text: submittedItem.trim(), done: false },
+      });
       setSubmittedItem("");
     }
   }
 
   return (
-    <div
-      style={{ display: "flex", marginTop: "10px", justifyContent: "center" }}
-    >
+    <div className="add-todo-div">
       <input
         type="text"
         id="submitInput"
         name="submitInput"
         value={submittedItem}
         onChange={(event) => setSubmittedItem(event.target.value)}
-        style={{ width: "50%", borderRadius: "5px" }}
+        className="add-todo-text"
       />
       <input
         type="submit"
         value="add"
         onClick={onSubmitItem}
-        style={{
-          width: "9%",
-          height: "45px",
-          backgroundColor: "#1580eb",
-          borderRadius: "5px",
-          fontSize: "18px",
-          color: "white",
-          border: "none",
-          marginLeft: "10px",
-        }}
+        className="add-todo-btn"
       ></input>
     </div>
   );
