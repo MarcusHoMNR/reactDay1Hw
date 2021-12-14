@@ -42,6 +42,7 @@
   border: #282c34 solid;
   margin-top: 10px;
   padding: 10px;
+  word-wrap: break-word;
 }
 
 .center {
