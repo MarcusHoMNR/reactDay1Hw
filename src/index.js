@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import todoListReducer from "./reducer/todoListReducer";
+import "antd/dist/antd.css";
 
 const store = createStore(
   todoListReducer,

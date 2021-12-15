@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { UPDATE_TODO_ITEMS } from "../constant/constant";
-import { Button } from "antd";
+import { Button, Input } from "antd";
 import { addTodoItem } from "../apis/todos";
 
 function TodoGenerator() {
@@ -23,7 +23,7 @@ function TodoGenerator() {
 
   return (
     <div className="add-todo-div">
-      <input
+      <Input
         type="text"
         id="submitInput"
         name="submitInput"
@@ -31,12 +31,13 @@ function TodoGenerator() {
         onChange={(event) => setSubmittedItemText(event.target.value)}
         className="add-todo-text"
       />
-      <input
-        type="submit"
-        value="add"
+      <Button
+        type="primary"
         onClick={onSubmitItem}
         className="add-todo-btn christmas-add-btn"
-      ></input>
+      >
+        add
+      </Button>
     </div>
   );
 }
