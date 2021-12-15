@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { UPDATE_TODO_ITEMS } from "../constant/constant";
+import { ADD_TODO_ITEMS } from "../constant/constant";
 import { Button, Input } from "antd";
 import { addTodoItem } from "../apis/todos";
 
 function TodoGenerator() {
   const [submittedItemText, setSubmittedItemText] = useState("");
+  const [editedTodoText, setEditedTodoText] = useState("");
   const dispatch = useDispatch();
 
   function onSubmitItem() {
@@ -13,7 +14,7 @@ function TodoGenerator() {
       addTodoItem({ text: submittedItemText.trim(), done: false }).then(
         (response) =>
           dispatch({
-            type: UPDATE_TODO_ITEMS,
+            type: ADD_TODO_ITEMS,
             payload: response.data,
           })
       );
@@ -34,7 +35,12 @@ function TodoGenerator() {
       <Button
         type="primary"
         onClick={onSubmitItem}
-        className="add-todo-btn christmas-add-btn"
+        className={
+          submittedItemText.trim() === ""
+            ? "add-todo-btn"
+            : "add-todo-btn christmas-add-btn"
+        }
+        disabled={submittedItemText.trim() === ""}
       >
         add
       </Button>

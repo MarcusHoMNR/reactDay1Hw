@@ -137,6 +137,35 @@ body {
   animation-play-state: running;
 }
 
+.christmas-confirm-btn {
+  border-color: green;
+  color: white;
+  border-style: dotted;
+  animation: christmas-confirm-btn-flash 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: running;
+}
+
+@keyframes christmas-confirm-btn-flash {
+  0% {
+    border-color: green;
+    color: green;
+  }
+  25% {
+    border-color: red;
+    color: red;
+  }
+  75% {
+    border-color: yellow;
+    color: yellow;
+  }
+  100% {
+    border-color: green;
+    color: green;
+  }
+}
+
 @keyframes christmas-add-btn-flash {
   0% {
     border-color: green;

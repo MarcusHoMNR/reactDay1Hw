@@ -43,6 +43,10 @@
   user-select: none;
 }
 
+.modal-text {
+  background-color: honeydew;
+}
+
 .add-todo-btn {
   width: 9%;
   height: 45px;
