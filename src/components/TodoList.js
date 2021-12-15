@@ -10,8 +10,8 @@ function TodoList() {
         <span className="todo-title">Todo List</span>
         <span className="christmas-tree">🎄</span>
       </h1>
-      <TodoGroup></TodoGroup>
       <TodoGenerator></TodoGenerator>
+      <TodoGroup></TodoGroup>
     </div>
   );
 }

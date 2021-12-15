@@ -50,7 +50,7 @@
   border-radius: 5px;
   font-size: 18px;
   color: white;
-  /* border: dotted red; */
+  cursor: pointer;
   margin-left: 10px;
 }
 
@@ -74,6 +74,14 @@
   text-decoration: line-through;
 }
 
-.todo-title {
+.todo {
+  color: white;
+}
+
+.link {
+  margin-left: 2%;
+  margin-top: 3%;
+  font-size: 21px;
+  border-radius: 5px;
   color: white;
 }

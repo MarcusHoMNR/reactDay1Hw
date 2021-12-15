@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+/* 
+.overlay-top {
+  align-items: center;
+  overflow: hidden;
+  height: 20px;
+  width: 5%;
+  background-color: black;
+  margin: 0 auto;
+}
+
+.overlay-top:hover {
+  height: 100px;
+  width: 100%;
+  animation: overlay-top-in 2s;
+}
+
+@keyframes overlay-top-in {
+  from {
+    height: 20px;
+    width: 5%;
+  }
+  to {
+    height: 100px;
+    width: 100%;
+  }
+} */
