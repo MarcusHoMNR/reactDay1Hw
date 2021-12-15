@@ -8,7 +8,8 @@ import "../style/TodoList.css";
 function TodoItem(props) {
   const dispatch = useDispatch();
 
-  function handleDeleteTodoList() {
+  function handleDeleteTodoList(event) {
+    event.stopPropagation();
     dispatch({ type: DELETE_TODO_ITEMS, payload: props.item.id });
   }
 

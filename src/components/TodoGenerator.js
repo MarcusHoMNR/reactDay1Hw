@@ -13,8 +13,8 @@ function TodoGenerator() {
         type: UPDATE_TODO_ITEMS,
         payload: { id: uuidv4(), text: submittedItem.trim(), done: false },
       });
-      setSubmittedItem("");
     }
+    setSubmittedItem("");
   }
 
   return (
@@ -31,7 +31,7 @@ function TodoGenerator() {
         type="submit"
         value="add"
         onClick={onSubmitItem}
-        className="add-todo-btn"
+        className="add-todo-btn christmas-add-btn"
       ></input>
     </div>
   );
