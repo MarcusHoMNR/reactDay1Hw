@@ -8,7 +8,7 @@ export const addTodoItem = (item) => {
   return api.post("/todos", item);
 };
 
-export const toggleTodoItemDone = (item) => {
+export const UpdateTodoItemValue = (item) => {
   return api.put("/todos/" + item.id, item);
 };
 
