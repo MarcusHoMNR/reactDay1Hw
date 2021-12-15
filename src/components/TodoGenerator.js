@@ -31,13 +31,12 @@ function TodoGenerator() {
         onChange={(event) => setSubmittedItemText(event.target.value)}
         className="add-todo-text"
       />
-      {/* <input
+      <input
         type="submit"
         value="add"
         onClick={onSubmitItem}
         className="add-todo-btn christmas-add-btn"
-      ></input> */}
-      <Button>add</Button>
+      ></input>
     </div>
   );
 }
