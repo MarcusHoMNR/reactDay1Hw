@@ -4,19 +4,19 @@ import { ADD_TODO_ITEMS } from "../constant/constant";
 import { Button, Input } from "antd";
 import { addTodoItem } from "../apis/todos";
 
-function TodoGenerator() {
+function TodoGenerator(props) {
   const [submittedItemText, setSubmittedItemText] = useState("");
-  const [editedTodoText, setEditedTodoText] = useState("");
   const dispatch = useDispatch();
 
   function onSubmitItem() {
     if (submittedItemText.trim() !== "") {
       addTodoItem({ text: submittedItemText.trim(), done: false }).then(
-        (response) =>
+        (response) => {
           dispatch({
             type: ADD_TODO_ITEMS,
             payload: response.data,
-          })
+          });
+        }
       );
     }
     setSubmittedItemText("");

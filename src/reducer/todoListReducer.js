@@ -26,7 +26,7 @@ const todoItemsReducer = (state = initState, action) => {
     case DELETE_TODO_ITEMS:
       return {
         todoItems: state.todoItems.filter(
-          (todoItems) => todoItems.id !== action.payload.id
+          (todoItems) => todoItems.id !== action.payload
         ),
       };
 

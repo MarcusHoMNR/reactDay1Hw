@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { Modal, Button } from "antd";
+import { Modal } from "antd";
 import { deleteTodoItem, UpdateTodoItemValue } from "../apis/todos";
 import {
   DELETE_TODO_ITEMS,
@@ -14,14 +14,16 @@ function TodoItem(props) {
   const dispatch = useDispatch();
   const [modalVisible, setModalVisible] = useState(false);
   const [editedTodoText, setEditedTodoText] = useState("");
+  const disbaleBtn =
+    editedTodoText.trim() === "" || editedTodoText.trim() === props.item.text;
 
   function openModal(event) {
     event.stopPropagation();
     setModalVisible(true);
+    setEditedTodoText(props.item.text);
   }
 
-  function onOk(event) {
-    event.stopPropagation();
+  function onOk() {
     setModalVisible(false);
     if (editedTodoText.trim() !== "") {
       UpdateTodoItemValue({ ...props.item, text: editedTodoText.trim() }).then(
@@ -32,27 +34,31 @@ function TodoItem(props) {
           })
       );
     }
-    setEditedTodoText("");
   }
 
-  function onCancel(event) {
-    event.stopPropagation();
+  function onCancel() {
     setModalVisible(false);
-    setEditedTodoText("");
   }
 
   function handleToggleDone() {
     UpdateTodoItemValue({ ...props.item, done: !props.item.done }).then(
-      (response) =>
-        dispatch({ type: UPDATE_TODO_ITEMS_VALUE, payload: response.data })
+      (response) => {
+        dispatch({ type: UPDATE_TODO_ITEMS_VALUE, payload: response.data });
+      }
     );
   }
 
   function handleDeleteTodoList(event) {
     event.stopPropagation();
-    deleteTodoItem(props.item.id).then((response) =>
-      dispatch({ type: DELETE_TODO_ITEMS, payload: response.data })
-    );
+
+    deleteTodoItem(props.item.id).then((response) => {
+      if (response.status === 204) {
+        dispatch({
+          type: DELETE_TODO_ITEMS,
+          payload: props.item.id,
+        });
+      }
+    });
   }
 
   return (
@@ -65,9 +71,8 @@ function TodoItem(props) {
         okText="Confirm"
         cancelText="Cancel"
         okButtonProps={{
-          disabled: editedTodoText.trim() === "",
-          className:
-            editedTodoText.trim() === "" ? null : "christmas-confirm-btn",
+          disabled: disbaleBtn,
+          className: disbaleBtn ? null : "christmas-confirm-btn",
           style: { backgroundColor: "green" },
         }}
       >
@@ -82,12 +87,15 @@ function TodoItem(props) {
           style={{ width: " 100%" }}
         ></TextArea>
       </Modal>
+
       <div className="todo-item-row" onClick={handleToggleDone}>
-        <span className={props.item.done ? "todo-text-done" : "todo-text"}>
+        <span
+          className={props.item.done ? "todo-text strike-through" : "todo-text"}
+        >
           {props.item.text}
         </span>
+
         <span className="item-row-btn" onClick={openModal}>
-          {" "}
           <EditOutlined />
         </span>
         <span className="item-row-btn" onClick={handleDeleteTodoList}>

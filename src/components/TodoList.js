@@ -2,9 +2,9 @@ import TodoGenerator from "./TodoGenerator";
 import TodoGroup from "./TodoGroup";
 import "../style/Christmas.css";
 
-function TodoList() {
+function TodoList(props) {
   return (
-    <div className="center">
+    <div className="center ">
       <h1>
         <span className="christmas-tree">🎄</span>
         <span className="title">Todo List</span>

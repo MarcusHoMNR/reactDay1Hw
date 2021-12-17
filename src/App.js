@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { INIT_TODO_ITEMS } from "./constant/constant";
 import { getTodos } from "./apis/todos";
+import { useState } from "react";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function App() {
         </Link>
 
         <Link className="link" to="/undone">
-          Un-done Items
+          Undone Items
         </Link>
 
         <Link className="link" to="/done">
